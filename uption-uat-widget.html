@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <div
+      class="cf-turnstile"
+      data-sitekey="0x4AAAAAADlKEiRxgaAgABt9"
+      data-callback="onSuccess"
+      data-theme="light"
+      data-size="normal"
+    ></div>
+
+    <script>
+      function onSuccess(token) {
+        window.ReactNativeWebView?.postMessage(
+          JSON.stringify({
+            type: "TURNSTILE_SUCCESS",
+            token,
+          }),
+        );
+      }
+    </script>
+  </body>
+</html>
+
+upt.cloudflare.widget
